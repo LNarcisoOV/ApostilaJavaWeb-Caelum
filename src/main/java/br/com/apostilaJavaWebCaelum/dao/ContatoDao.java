@@ -74,4 +74,37 @@ public class ContatoDao {
 			return null;
 		}
 	}
+	
+	public List<Contato> getPesquisaTodosOsContatos() {
+		List<Contato> contatos = new ArrayList<Contato>();
+		PreparedStatement stmt;
+		try {
+			stmt = this.connection.prepareStatement("select * from tb_contatos");
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				// criando o objeto Contato
+				Contato contato = new Contato();
+				contato.setId(rs.getLong("id"));
+				contato.setNome(rs.getString("nome"));
+				contato.setEmail(rs.getString("email"));
+				contato.setEndereco(rs.getString("endereco"));
+
+				// montando a data através do Calendar
+				Calendar data = Calendar.getInstance();
+				data.setTime(rs.getDate("dataNascimento"));
+				contato.setDataNascimento(data);
+
+				// adicionando o objeto à lista
+				contatos.add(contato);
+			}
+			rs.close();
+			stmt.close();
+			return contatos;
+		} catch (SQLException e) {
+			System.out.println("Ocorreu um erro ao pesquisar contato.");
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
