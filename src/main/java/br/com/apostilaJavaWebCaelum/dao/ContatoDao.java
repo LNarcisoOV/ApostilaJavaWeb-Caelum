@@ -9,12 +9,17 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import br.com.apostilaJavaWebCaelum.infra.ConnectionFactory;
 import br.com.apostilaJavaWebCaelum.model.Contato;
 
+@Repository
 public class ContatoDao {
 	private Connection connection;
 
+	@Autowired
 	public ContatoDao() {
 		this.connection = new ConnectionFactory().getConnection();
 	}

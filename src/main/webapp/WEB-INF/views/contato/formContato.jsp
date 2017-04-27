@@ -1,8 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib tagdir="/WEB-INF/tags" prefix="caelum"%>
 
-<c:import url="cabecalho.jsp" />
-
 <html>
 	<head>
 		<link href="js/jquery-ui.css" rel="stylesheet">
@@ -10,7 +8,7 @@
 		<script src="js/jquery-ui.min.js"></script>
 	</head>
 	<body>
-		<form action="adicionarContatoServlet" method="POST">
+		<form action="adicionarContato" method="POST">
 			Nome: <input type="text" name="nome" />
 			<br />
 			E-mail: <input type="text" name="email" />

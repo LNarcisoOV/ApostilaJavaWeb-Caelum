@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.apostilaJavaWebCaelum.dao.ContatoDao;
 import br.com.apostilaJavaWebCaelum.model.Contato;
 
-@WebServlet("/adicionarContato")
+@WebServlet("/adicionarContatoServlet")
 public class AdicionaContatoServlet extends HttpServlet {
 
 	/**

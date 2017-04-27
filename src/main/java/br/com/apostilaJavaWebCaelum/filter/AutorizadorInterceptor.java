@@ -14,11 +14,11 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 		 String uri = request.getRequestURI();
 	      if(uri.endsWith("login") || 
 	          uri.endsWith("efetuarLogin") || 
-	              uri.contains("resources")){
+	              uri.contains("resources")|| 
+	              uri.contains("contato")){
 	        return true;
 	      }
 	      
-		
 		if (request.getSession().getAttribute("usuarioLogado") != null) {
 			return true;
 		}
