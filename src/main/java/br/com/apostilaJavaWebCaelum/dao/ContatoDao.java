@@ -18,6 +18,7 @@ import br.com.apostilaJavaWebCaelum.model.Contato;
 @Repository
 public class ContatoDao {
 	private Connection connection;
+	
 
 	@Autowired
 	public ContatoDao() {
