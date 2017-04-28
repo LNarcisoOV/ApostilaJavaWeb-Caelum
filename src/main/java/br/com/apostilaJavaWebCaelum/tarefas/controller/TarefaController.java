@@ -6,10 +6,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.apostilaJavaWebCaelum.dao.TarefaDao;
 import br.com.apostilaJavaWebCaelum.model.Tarefa;
 
 @Controller
 public class TarefaController {
+	private TarefaDao tarefaDao;
+	
+	public TarefaController(TarefaDao tarefaDao){
+		this.tarefaDao = tarefaDao;
+	}
 
 	@RequestMapping("tarefa/cadastro")
 	public String paginaDeCadastro() {
@@ -22,6 +28,8 @@ public class TarefaController {
 		if(result.hasFieldErrors("descricao")){
 			return "tarefa/form";
 		}
+		
+		tarefaDao.adicionaTarefa(tarefa);
 		
 		return "tarefa/adicionada";
 	}

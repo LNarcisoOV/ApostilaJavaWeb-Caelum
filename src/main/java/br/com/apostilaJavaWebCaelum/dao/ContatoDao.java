@@ -25,6 +25,7 @@ public class ContatoDao {
 	}
 
 	public void adiciona(Contato contato) {
+		
 		String sql = "insert into tb_contatos " + "(nome,email,endereco,dataNascimento)" + " values (?,?,?,?)";
 
 		try {
